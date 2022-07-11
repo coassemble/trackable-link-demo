@@ -14,9 +14,9 @@ exports.handler = function(event, context, callback) {
 }
 
 function hash(identifier) {
-    return crypto.createHmac('SHA256', process.env.SHARED_SECRET).update(identifier).digest('base64');
+    return crypto.createHmac('SHA256', process.env.SHARED_SECRET).update(identifier).digest('hex');
 }
 
 function getJsonOutput(status, message, hash) {
-    return { status, message, hash, env: process.env };
+    return { status, message, hash };
 }
