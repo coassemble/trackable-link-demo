@@ -18,5 +18,5 @@ function hash(identifier) {
 }
 
 function getJsonOutput(status, message, hash) {
-    return { status, message, hash };
+    return { status, message, hash, env: process.env };
 }
