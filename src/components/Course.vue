@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     src() {
-      return `${TRACKABLE_LINK}?id=${this.identifier}&hash=${this.hash}`;
+      return `${TRACKABLE_LINK}?id=${encodeURIComponent(this.identifier)}&hash=${encodeURIComponent(this.hash)}`;
     }
   },
   mounted() {
