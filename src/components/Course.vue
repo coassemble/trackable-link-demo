@@ -1,5 +1,5 @@
 <template>
-  <iframe :src="src" />
+  <iframe v-if="hash" :src="src" />
 </template>
 
 <script>
@@ -10,9 +10,31 @@ export default {
   props: {
     identifier: { type: String, default: '' },
   },
+  data() {
+    return {
+      hash: null,
+    };
+  },
   computed: {
     src() {
-      return `${TRACKABLE_LINK}?id=${this.identifier}`;
+      return `${TRACKABLE_LINK}?id=${this.identifier}&hash=${this.hash}`;
+    }
+  },
+  mounted() {
+    this.getHash();
+  },
+  methods: {
+    getHash() {
+      const xhttp = new XMLHttpRequest();
+      let url = `https://coassemble-trackable-link-demo.netlify.app/.netlify/functions/hash?identifier=${this.identifier}`;
+
+      xhttp.open('GET', url, false);
+      xhttp.send();
+
+      if (xhttp.status === 200) {
+          const response = JSON.parse(xhttp.responseText);
+          this.hash = response.hash;
+      }
     }
   }
 }
