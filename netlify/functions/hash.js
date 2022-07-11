@@ -15,7 +15,7 @@ exports.handler = function(event, context, callback) {
         output = getJsonOutput('400', 'Required querystring property is missing.', '');
     }
 
-    callback(null, { statusCode: output.status, headers, body: JSON.stringify(output) });
+    callback(null, { statusCode: '200', headers, body: JSON.stringify(output) });
 }
 
 function hash(identifier) {
