@@ -26,7 +26,7 @@ export default {
   methods: {
     getHash() {
       const xhttp = new XMLHttpRequest();
-      let url = `https://coassemble-trackable-link-demo.netlify.app/.netlify/functions/hash?identifier=${this.identifier}`;
+      let url = `/.netlify/functions/hash?identifier=${this.identifier}`;
 
       xhttp.open('GET', url, false);
       xhttp.send();
