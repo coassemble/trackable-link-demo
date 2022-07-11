@@ -1,11 +1,6 @@
 require('dotenv').config();
 const crypto = require('crypto');
 
-const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type'
-};
-
 exports.handler = function(event, context, callback) {
     let identifier = event.queryStringParameters.identifier;
     let output;
@@ -15,7 +10,7 @@ exports.handler = function(event, context, callback) {
         output = getJsonOutput('400', 'Required querystring property is missing.', '');
     }
 
-    callback(null, { statusCode: Number(output.status), headers, body: JSON.stringify(output) });
+    callback(null, { statusCode: Number(output.status), body: JSON.stringify(output) });
 }
 
 function hash(identifier) {
