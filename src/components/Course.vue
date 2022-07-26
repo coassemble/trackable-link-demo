@@ -3,7 +3,7 @@
 </template>
 
 <script>
-const TRACKABLE_LINK = 'https://trainingorganisation.featuredev-18640-tcu.openassemble.com/enter/JWk0LzD'; // TODO: Update to production link
+const TRACKABLE_LINK = 'https://engineering.coassemble.com/enter/GVQ5TLg';
 
 export default {
   name: 'Course',
