@@ -89,7 +89,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  height: 120px;
   padding: 40px;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.6) 100%),
