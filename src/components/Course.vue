@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     listen() {
-      window.addEventListener('message', event => window.postMessage(event.data, '*'));
+      window.addEventListener('message', event => window.parent && window.parent.postMessage(event.data, '*'));
     },
     getHash() {
       const xhttp = new XMLHttpRequest();
