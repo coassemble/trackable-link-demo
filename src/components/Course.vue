@@ -22,8 +22,12 @@ export default {
   },
   mounted() {
     this.getHash();
+    this.listen();
   },
   methods: {
+    listen() {
+      window.addEventListener('message', event => window.postMessage(event.data, '*'));
+    },
     getHash() {
       const xhttp = new XMLHttpRequest();
       let url = `/.netlify/functions/hash?identifier=${this.identifier}`;
