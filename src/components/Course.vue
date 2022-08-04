@@ -38,7 +38,7 @@ export default {
       if (xhttp.status === 200) {
           const response = JSON.parse(xhttp.responseText);
           this.hash = response.hash;
-          if (window.parent) window.parent.postMessage(response, '*');
+          if (window.parent) window.parent.postMessage(xhttp.responseText, '*');
       }
     }
   }
